@@ -29,7 +29,8 @@ namespace challenge.Repositories
 
         public Employee GetById(string id)
         {
-            // Comments here
+            // ToList() returns the list of employees. Then we retrieve the matching employee 
+            // by employeeId.
             var employees = _employeeContext.Employees.ToList();
             return employees.SingleOrDefault(e => e.EmployeeId == id);
         }

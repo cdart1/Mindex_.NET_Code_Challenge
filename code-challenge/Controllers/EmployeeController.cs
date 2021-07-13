@@ -31,6 +31,22 @@ namespace challenge.Controllers
             return CreatedAtRoute("getEmployeeById", new { id = employee.EmployeeId }, employee);
         }
 
+
+
+        // This endpoint renders compensation per employeeId
+        [HttpGet("{id}/compensation")]
+        public IActionResult CreateCompensation(String id)
+        {
+            _logger.LogDebug($"Received compensation get request for '{id}'");
+
+            var compensationById = _employeeService.GetCompById(id);
+
+            if (compensationById == null)
+                return NotFound();
+            // The built-in helper method Ok returns JSON-formatted data
+            return Ok(compensationById);
+        }
+
         [HttpGet("{id}", Name = "getEmployeeById")]
         public IActionResult GetEmployeeById(String id)
         {

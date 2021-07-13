@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\Downloads\\sr-code-challenge-dotnet\\code-challenge\\code-challenge.csproj": {}
+    "C:\\Repos\\Mindex_.NET_Code_Challenge\\code-challenge\\code-challenge.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\Downloads\\sr-code-challenge-dotnet\\code-challenge\\code-challenge.csproj": {
+    "C:\\Repos\\Mindex_.NET_Code_Challenge\\code-challenge\\code-challenge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\Downloads\\sr-code-challenge-dotnet\\code-challenge\\code-challenge.csproj",
+        "projectUniqueName": "C:\\Repos\\Mindex_.NET_Code_Challenge\\code-challenge\\code-challenge.csproj",
         "projectName": "code-challenge",
-        "projectPath": "C:\\Users\\marti\\Downloads\\sr-code-challenge-dotnet\\code-challenge\\code-challenge.csproj",
+        "projectPath": "C:\\Repos\\Mindex_.NET_Code_Challenge\\code-challenge\\code-challenge.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\Downloads\\sr-code-challenge-dotnet\\code-challenge\\obj\\",
+        "outputPath": "C:\\Repos\\Mindex_.NET_Code_Challenge\\code-challenge\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,6 +44,14 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.7, )"
+            },
             "Microsoft.AspNetCore.All": {
               "target": "Package",
               "version": "[2.0.6, )"
@@ -61,6 +69,14 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

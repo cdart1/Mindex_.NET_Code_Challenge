@@ -12,5 +12,6 @@ namespace challenge.Services
         Employee Create(Employee employee);
         Employee Replace(Employee originalEmployee, Employee newEmployee);
         ReportingStructure GetReporting(String id);
+        Compensation GetCompById(String id);
     }
 }

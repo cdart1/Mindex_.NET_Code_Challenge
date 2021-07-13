@@ -19,7 +19,14 @@ namespace challenge.Services
             _logger = logger;
         }
 
+        //public Employee CreateCompensation(Compensation compensation)
+        //{
+        //    var employeeId = compensation.Employee.EmployeeId;
+        //    if (!String.IsNullOrEmpty(employeeId))
+        //    {
 
+        //    }
+        //}
 
         public Employee Create(Employee employee)
         {
@@ -42,15 +49,28 @@ namespace challenge.Services
             return null;
         }
 
+        // This method should return a compensation object for the employee by which 
+        // employeeId is provided.
+        public Compensation GetCompById(String id)
+        {
+            var employee = GetById(id);
+            //var salary = GetSalary();
+            Compensation compensation = new Compensation();
+            compensation.Employee = employee;
+            //compensation.Salary = salary;
+            //compensation.EffectiveDate = DateTime.Now;
+            return compensation;
+        }
+
         // This method returns the numberOfReports for an employee and all of their direct reports.
         public ReportingStructure GetReporting(string id)
         {
             int count = 0;
             var employee = GetById(id);
             ReportingStructure reportingStructure = new ReportingStructure();
-            reportingStructure.employee = employee;
+            reportingStructure.Employee = employee;
             RecursiveReports(employee, ref count);
-            reportingStructure.numberOfReports = count;
+            reportingStructure.NumberOfReports = count;
             return reportingStructure;
         }
 
