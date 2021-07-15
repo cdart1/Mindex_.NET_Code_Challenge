@@ -24,7 +24,7 @@ namespace challenge.Repositories
 
         public Compensation AddSalary(Compensation compensation)
         {
-            _employeeContext.Compensations.Add(compensation);
+            _employeeContext.Compensations.Attach(compensation);
             return compensation;
         }
 

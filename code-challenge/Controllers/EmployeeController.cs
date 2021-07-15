@@ -31,7 +31,7 @@ namespace challenge.Controllers
             return CreatedAtRoute("getEmployeeById", new { id = employee.EmployeeId }, employee);
         }
 
-        [HttpPut("createcompensation")]
+        [HttpPost("createcompensation")]
         public IActionResult CreateCompensation([FromBody] Compensation compensation)
         {
             _logger.LogDebug($"Received compensation create request for '{compensation.Employee}'");
