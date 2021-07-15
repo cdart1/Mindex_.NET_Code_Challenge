@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,6 +15,10 @@ namespace challenge.Models
         public String Position { get; set; }
         public String Department { get; set; }
         public List<Employee> DirectReports { get; set; }
+        // Added a reference navigation property of Compensation type. This allows us to 
+        // link the same Compensation to many different Employee entities.
+        //[ForeignKey("CompensationId")]
+        //public Compensation Compensation { get; set; }
     }
 
 }

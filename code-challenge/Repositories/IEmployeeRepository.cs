@@ -10,5 +10,6 @@ namespace challenge.Repositories
         Employee Add(Employee employee);
         Employee Remove(Employee employee);
         Task SaveAsync();
+        Compensation AddSalary(Compensation compensation);
     }
 }

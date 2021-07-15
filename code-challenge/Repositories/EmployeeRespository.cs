@@ -6,6 +6,8 @@ using challenge.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using challenge.Data;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace challenge.Repositories
 {
@@ -18,6 +20,12 @@ namespace challenge.Repositories
         {
             _employeeContext = employeeContext;
             _logger = logger;
+        }
+
+        public Compensation AddSalary(Compensation compensation)
+        {
+            _employeeContext.Compensations.Add(compensation);
+            return compensation;
         }
 
         public Employee Add(Employee employee)

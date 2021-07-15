@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using challenge.Models;
 using Microsoft.Extensions.Logging;
 using challenge.Repositories;
+using challenge.Enum;
 
 namespace challenge.Services
 {
@@ -19,14 +20,15 @@ namespace challenge.Services
             _logger = logger;
         }
 
-        //public Employee CreateCompensation(Compensation compensation)
-        //{
-        //    var employeeId = compensation.Employee.EmployeeId;
-        //    if (!String.IsNullOrEmpty(employeeId))
-        //    {
-
-        //    }
-        //}
+        public Compensation CreateSalary(Compensation compensation)
+        {
+            if (compensation != null)
+            {
+                _employeeRepository.AddSalary(compensation);
+                _employeeRepository.SaveAsync().Wait();
+            }
+            return compensation;
+        }
 
         public Employee Create(Employee employee)
         {
@@ -35,7 +37,6 @@ namespace challenge.Services
                 _employeeRepository.Add(employee);
                 _employeeRepository.SaveAsync().Wait();
             }
-
             return employee;
         }
 
@@ -49,18 +50,18 @@ namespace challenge.Services
             return null;
         }
 
-        // This method should return a compensation object for the employee by which 
+        // This method returns a compensation object for the employee by which 
         // employeeId is provided.
-        public Compensation GetCompById(String id)
-        {
-            var employee = GetById(id);
-            //var salary = GetSalary();
-            Compensation compensation = new Compensation();
-            compensation.Employee = employee;
-            //compensation.Salary = salary;
+        //public Compensation GetCompById(String id)
+        //{
+            //var compensationById = GetById(id);
+            //var salary = GetSalary(employee);
+            //Compensation compensation = new Compensation();
+            //compensation.Employee = employee;
+            //compensation.Salary = (int)salary;
             //compensation.EffectiveDate = DateTime.Now;
-            return compensation;
-        }
+            //return compensationById;
+        //}
 
         // This method returns the numberOfReports for an employee and all of their direct reports.
         public ReportingStructure GetReporting(string id)

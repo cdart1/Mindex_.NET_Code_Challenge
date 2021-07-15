@@ -31,21 +31,29 @@ namespace challenge.Controllers
             return CreatedAtRoute("getEmployeeById", new { id = employee.EmployeeId }, employee);
         }
 
-
-
-        // This endpoint renders compensation per employeeId
-        [HttpGet("{id}/compensation")]
-        public IActionResult CreateCompensation(String id)
+        [HttpPut("createcompensation")]
+        public IActionResult CreateCompensation([FromBody] Compensation compensation)
         {
-            _logger.LogDebug($"Received compensation get request for '{id}'");
+            _logger.LogDebug($"Received compensation create request for '{compensation.Employee}'");
 
-            var compensationById = _employeeService.GetCompById(id);
+            _employeeService.CreateSalary(compensation);
 
-            if (compensationById == null)
-                return NotFound();
-            // The built-in helper method Ok returns JSON-formatted data
-            return Ok(compensationById);
+            return CreatedAtRoute("getCompensationById", compensation);
         }
+
+        // This endpoint retrieves compensation by employeeId
+        //[HttpGet("{id}/getcompensation", Name = "getCompensationById")]
+        //public IActionResult ReadCompensation(String id)
+        //{
+        //    _logger.LogDebug($"Received compensation get request for '{id}'");
+
+        //    var compensationById = _employeeService.GetById(id);
+
+        //    if (compensationById == null)
+        //        return NotFound();
+        //    // The built-in helper method Ok returns JSON-formatted data
+        //    return Ok(compensationById);
+        //}
 
         [HttpGet("{id}", Name = "getEmployeeById")]
         public IActionResult GetEmployeeById(String id)
